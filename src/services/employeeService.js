@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api/';
+const API_BASE_URL = 'https://hrms-backend-127a.onrender.com/api/';
 
 export const employeeService = {
   async getEmployees() {
