@@ -1,0 +1,6 @@
+[build]
+  command = "npm install --legacy-peer-deps && chmod +x ./node_modules/.bin/react-scripts && npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
