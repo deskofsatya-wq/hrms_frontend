@@ -1,4 +1,11 @@
-const API_BASE_URL = 'https://hrms-backend-127a.onrender.com/api/';
+/**
+ * Create By @name Satyaban_Khuntia
+ */
+
+const API_BASE_URL = 'https://hrms-backend-75zp.onrender.com/api/';
+//const API_BASE_URL = 'http://127.0.0.1:8000/api/';
+
+
 
 export const employeeService = {
   async getEmployees() {
@@ -61,5 +68,10 @@ export const employeeService = {
       throw new Error(data.detail || 'Failed to update attendance');
     }
     return data;
-  }
+  },
+
+  async getAttendance() {
+    const response = await fetch(`${API_BASE_URL}attendance/att-list/`);
+    return response.json();
+  },
 };

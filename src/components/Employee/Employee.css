@@ -1,3 +1,6 @@
+/**
+ * Create By @name Satyaban_Khuntia
+ */
 .employee-container {
   max-width: 1000px;
   margin: 20px auto;
@@ -97,14 +100,14 @@
   color: #6c757d;
 }
 
-.department-badge {
+/* .department-badge {
   background: #e3f2fd;
   color: #1976d2;
   padding: 4px 12px;
   border-radius: 16px;
   font-size: 12px;
   font-weight: 500;
-}
+} */
 
 .action-buttons {
   display: flex;
@@ -245,55 +248,89 @@
   justify-content: center;
 }
 
+/* 1. Primary Button - Uses a slice of your header's gradient */
 .btn-primary {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #6b4ba2 0%, #d657a7 100%);
   color: white;
-  padding: 12px 24px;
+  padding: 12px 28px; /* Slightly wider for a premium feel */
   border: none;
-  border-radius: 6px;
+  border-radius: 50px; /* Pill shape is more modern */
   cursor: pointer;
   margin-right: 10px;
   font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(107, 75, 162, 0.3);
 }
 
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214, 87, 167, 0.4);
+  filter: brightness(1.1);
+}
+
+/* 2. Secondary Button - Soft "Ghost" style to avoid clashing */
 .btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
+  background-color: #f8f9fa;
+  color: #6b4ba2; /* Matches header purple */
+  padding: 12px 28px;
+  border: 1px solid #e9ecef;
+  border-radius: 50px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
+.btn-secondary:hover {
+  background-color: #ffffff;
+  border-color: #6b4ba2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 3. Edit Button - Modern Emerald with soft edges */
 .btn-edit {
-  background-color: #28a745;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
+  background-color: #ecfdf5; /* Very light green bg */
+  color: #059669; /* Deep emerald text */
+  padding: 8px 18px;
+  border: 1px solid #10b981;
+  border-radius: 8px;
   cursor: pointer;
   margin-right: 8px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
-.btn-delete {
-  background-color: #dc3545;
+.btn-edit:hover {
+  background-color: #10b981;
   color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
+  transform: scale(1.05);
+}
+
+/* 4. Delete Button - Soft Rose/Red */
+.btn-delete {
+  background-color: #fff1f2; /* Very light red bg */
+  color: #e11d48; /* Vivid rose text */
+  padding: 8px 18px;
+  border: 1px solid #f43f5e;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #f43f5e;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Shared active state for all buttons */
+.btn-primary:active, .btn-secondary:active, .btn-edit:active, .btn-delete:active {
+  transform: translateY(0) scale(0.98);
 }
 
 
@@ -457,5 +494,287 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Base Badge Style */
+.department-badge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+/* Department Specific Colors */
+.department-badge.engineering {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.department-badge.hr, 
+.department-badge.human-resources {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fee2e2;
+}
+
+.department-badge.ui\/ux, 
+.department-badge.design {
+  background-color: #f5f3ff;
+  color: #5b21b6;
+  border: 1px solid #ede9fe;
+}
+
+.department-badge.marketing {
+  background-color: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #ffedd5;
+}
+
+.department-badge.finance {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #dcfce7;
+}
+
+/**
+ * Modern Form UI for HRMS
+ */
+ .employee-form {
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+}
+
+.employee-form h3 {
+  margin: 0 0 30px 0;
+  color: #1e293b;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #475569;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #1e293b;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #f8fafc;
+}
+
+/* Modern Focus State: Using your Header colors as a glow */
+.form-group input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #6b4ba2;
+  box-shadow: 0 0 0 4px rgba(107, 75, 162, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+/* Error Styling */
+.error-message {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.error-message::before {
+  content: '⚠️';
+  margin-right: 4px;
+  font-size: 10px;
+}
+
+.required {
+  color: #d657a7; /* Matching your header pink */
+}
+
+/* Form Action Buttons */
+.form-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+}
+
+.form-actions .btn-primary {
+  flex: 2; /* Save button is wider */
+  margin: 0;
+}
+
+.form-actions .btn-secondary {
+  flex: 1;
+}
+
+
+
+/* --- High-End HRM Color Variables --- */
+/* --- High-End HRM Color Variables --- */
+:root {
+  --primary-indigo: #6366f1;
+  --bg-app: #f1f5f9;
+  --text-main: #1e293b;
+  --text-light: #64748b;
+  --white: #ffffff;
+  --danger: #ef4444;
+  --success: #10b981;
+}
+
+@media screen and (max-width: 768px) {
+  /* Set a light background for the body to make cards "pop" */
+  body {
+    background-color: var(--bg-app);
+  }
+
+  .employee-container {
+    padding: 10px;
+  }
+
+  /* Hide Table Headers & Wrappers on Mobile */
+  .employee-table thead, .table-header {
+    display: none;
+  }
+
+  .table-container {
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .employee-table, .employee-table tbody, .employee-table tr, .employee-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* --- Premium Card Design --- */
+  .employee-row {
+    background: var(--white);
+    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease;
+  }
+
+  /* Row Styling (Label on Left, Data on Right) */
+  .employee-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #f8fafc !important;
+  }
+
+  /* --- Specialized Name Cell (The Header of the Card) --- */
+  .employee-table td.employee-name {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid #f1f5f9 !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 5px;
+  }
+
+  .employee-name::before {
+    margin-bottom: 4px;
+  }
+
+  .employee-name {
+    font-size: 1.15rem !important;
+    color: var(--primary-indigo) !important;
+    font-weight: 800 !important;
+  }
+
+  /* --- Professional Micro-Label Styling --- */
+  .employee-table td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .employee-id, .employee-email {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 13px;
+  }
+
+  /* --- Department Badge Styling --- */
+  .department-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #eef2ff;
+    color: var(--primary-indigo);
+  }
+
+  /* --- Action Buttons (SaaS Grid Style) --- */
+  .actions-cell {
+    border-bottom: none !important;
+    padding-top: 20px !important;
+  }
+
+  .action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2x2 Grid */
+    gap: 12px;
+    width: 100%;
+  }
+
+  .action-buttons button {
+    width: 100%;
+    margin: 0 !important;
+    padding: 12px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-edit { background: #f1f5f9 !important; color: var(--text-main) !important; }
+  .btn-delete { background: #fee2e2 !important; color: var(--danger) !important; }
+  
+  .btn-attendance {
+    grid-column: span 2; /* Main action takes full width */
+    background: var(--primary-indigo) !important;
+    color: white !important;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
   }
 }

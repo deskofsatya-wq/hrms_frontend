@@ -1,9 +1,18 @@
+/**
+ * Create By @name Satyaban_Khuntia
+ */
 import React, { useState, useEffect } from 'react';
 import EmployeeForm from './EmployeeForm';
 import AttendanceModal from './AttendanceModal';
 import { employeeService } from '../../services/employeeService';
 import Swal from 'sweetalert2';
 import './Employee.css';
+
+const DUMMY_DATA = [
+  { id: 1, employeeId: "EMP-001", fullName: "Satyaban Khuntia", email: "satyaban@dev.com", department: "Engineering" },
+  { id: 2, employeeId: "EMP-002", fullName: "Arjun Sharma", email: "arjun@hrms.io", department: "HR" },
+  { id: 3, employeeId: "EMP-003", fullName: "Priya Das", email: "priya@design.com", department: "UI/UX" }
+];
 
 const EmployeeList = ({ onReset }) => {
   const [employees, setEmployees] = useState([]);
@@ -30,8 +39,9 @@ const EmployeeList = ({ onReset }) => {
     try {
       setLoading(true);
       const data = await employeeService.getEmployees();
-      setEmployees(data);
+      setEmployees(data || DUMMY_DATA);
     } catch (error) {
+      setEmployees(DUMMY_DATA); // Fallback to dummy
       console.error('Error fetching employees:', error);
     } finally {
       setLoading(false);
@@ -159,13 +169,15 @@ const EmployeeList = ({ onReset }) => {
                   Array(5).fill().map((_, index) => <SkeletonRow key={index} />)
                 ) : employees.length > 0 ? employees.map(employee => (
                   <tr key={employee.id} className="employee-row">
-                    <td className="employee-id">{employee.employeeId}</td>
-                    <td className="employee-name">{employee.fullName}</td>
-                    <td className="employee-email">{employee.email}</td>
-                    <td className="employee-department">
-                      <span className="department-badge">{employee.department}</span>
+                    <td data-label="ID" className="employee-id">{employee.employeeId}</td>
+                    <td data-label="Name" className="employee-name">{employee.fullName}</td>
+                    <td  data-label="Email" className="employee-email">{employee.email}</td>
+                    <td data-label="Dept" className="employee-department">
+                      <span className={`department-badge ${employee.department.toLowerCase().replace(/\s+/g, '-')}`}>
+                        {employee.department}
+                      </span>
                     </td>
-                    <td className="actions-cell">
+                    <td data-label="Actions" className="actions-cell">
                       <div className="action-buttons">
                         <button className="btn-edit" onClick={() => handleEdit(employee)}>Edit</button>
                         <button className="btn-delete" onClick={() => handleDelete(employee.id)}>Delete</button>

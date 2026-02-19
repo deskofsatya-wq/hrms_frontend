@@ -1,6 +1,6 @@
 /* Header Styles */
 .header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #d657a7 0%, #6b4ba2 100%);
   color: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
@@ -76,7 +76,7 @@
 
 /* Footer Styles */
 .footer {
-  background: #2c3e50;
+  background: linear-gradient(135deg, #d657a7 0%, #6b4ba2 100%);
   color: white;
   margin-top: auto;
   text-align: center;
@@ -103,5 +103,92 @@
   
   .footer {
     padding: 15px;
+  }
+}
+
+
+
+
+
+
+
+/* ... Keep your existing desktop styles above ... */
+
+/* Modern Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    /* Slightly more compact on mobile */
+    position: sticky;
+    top: 0;
+  }
+
+  .header-container {
+    flex-direction: row; /* Keep it horizontal but wrap if needed */
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 16px;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .logo {
+    flex: 1 1 auto;
+  }
+
+  .logo h1 {
+    font-size: 22px; /* Smaller text for mobile */
+  }
+
+  .logo span {
+    font-size: 10px;
+    margin-top: -2px;
+  }
+
+  .nav {
+    order: 3; /* Push nav to a new line */
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link {
+    flex: 1; /* Make buttons equal width on mobile */
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .user-info {
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+
+  .user-info span {
+    display: none; /* Hide "Welcome, Admin" text on tiny screens to save space */
+  }
+
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  /* Footer mobile tweaks */
+  .footer {
+    padding: 25px 15px;
+    font-size: 13px;
+  }
+}
+
+/* Extra small screens (Phones) */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 20px;
   }
 }

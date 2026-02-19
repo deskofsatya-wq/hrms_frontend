@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import EmployeeList from './components/Employee/EmployeeList';
+import AttendanceList from './components/Employee/AttendanceList';
 import './App.css';
 
 function App() {
@@ -18,8 +19,19 @@ function App() {
     <div className="App">
       <Header onNavigate={handleNavigation} currentView={currentView} />
       <main className="main-content">
-        {currentView === 'employees' ? <EmployeeList key={resetTrigger} onReset={resetTrigger} /> : <div>No view selected</div>}
-      </main>
+  {currentView === 'employees' && (
+    <EmployeeList key={resetTrigger} onReset={resetTrigger} />
+  )}
+
+  {currentView === 'attendance' && (
+    <AttendanceList />
+  )}
+
+  {!['employees', 'attendance'].includes(currentView) && (
+    <div>No view selected</div>
+  )}
+</main>
+
       <Footer />
     </div>
   );
